@@ -1,14 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://b08edlfj6412o"]
+[gd_scene load_steps=5 format=3 uid="uid://b08edlfj6412o"]
 
 [ext_resource type="Script" uid="uid://dky6vgxkephbg" path="res://game.gd" id="1_80nbo"]
+[ext_resource type="PackedScene" uid="uid://cvx5thewwcmwg" path="res://scenes/overlay.tscn" id="2_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://j5174apdg8to" path="res://scenes/game_menu.tscn" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://cbfdgvgpxopdo" path="res://scenes/main_game.tscn" id="5_7jktm"]
 
 [node name="Game" type="Node" groups=["game_root"]]
 script = ExtResource("1_80nbo")
 
-[node name="MainMenu" type="Control" parent="."]
+[node name="ControlRoot" type="Control" parent="." groups=["control_root"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Overlay" parent="ControlRoot" groups=["overlay"] instance=ExtResource("2_e2o6t")]
+unique_name_in_owner = true
+layout_mode = 1
+mouse_filter = 2
+
+[node name="MainGame" parent="ControlRoot" groups=["main_game"] instance=ExtResource("5_7jktm")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="GlobalRoot" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Prompts" type="Control" parent="GlobalRoot" groups=["prompt_root"]]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="GameMenu" parent="GlobalRoot" groups=["game_menu"] instance=ExtResource("3_feb5d")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+mouse_filter = 2

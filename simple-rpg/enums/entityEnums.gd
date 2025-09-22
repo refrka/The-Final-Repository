@@ -1,0 +1,38 @@
+class_name entityEnums extends Node
+
+
+enum EntityTag {
+	NULL,
+	HUMAN,
+	ELF,
+	DWARF,
+	BEAST,
+	HOSTILE,
+	MERCHANT,
+}
+
+
+
+
+
+enum FutureTags {
+	NULL,
+	AQUATIC,
+	BANDIT,
+	BEAST,
+	BURROW,
+	CORRUPT,
+	DWARF,
+	ELF,
+	ETHEREAL,
+	FLY,
+	GHOST,
+	HOSTILE,
+	HUMAN,
+	IMMAN,
+	MERCHANT,
+	OFFICIAL,
+	PEACEFUL,
+	ROYALTY,
+	TRAVELER,
+}

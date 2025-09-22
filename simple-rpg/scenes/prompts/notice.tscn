@@ -1,0 +1,107 @@
+[gd_scene load_steps=6 format=3 uid="uid://7xrl5m84wwk3"]
+
+[ext_resource type="Script" uid="uid://hfwde7mkgx3y" path="res://scenes/prompts/notice.gd" id="1_g3gao"]
+
+[sub_resource type="Animation" id="Animation_g3gao"]
+resource_name = "show"
+length = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.10293086, 0.19816595),
+"transitions": PackedFloat32Array(0.5, 2, 0.5),
+"update": 0,
+"values": [110.0, -20.0, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_7edy1"]
+resource_name = "hide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0903803),
+"transitions": PackedFloat32Array(2, 0.5),
+"update": 0,
+"values": [0.0, 110.0]
+}
+
+[sub_resource type="Animation" id="Animation_8m6a6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [110.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rfic"]
+_data = {
+&"RESET": SubResource("Animation_8m6a6"),
+&"hide": SubResource("Animation_7edy1"),
+&"show": SubResource("Animation_g3gao")
+}
+
+[node name="Notice" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 110.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_g3gao")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="NoticePanel" type="PanelContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+
+[node name="NoticeMessage" type="RichTextLabel" parent="MarginContainer/NoticePanel"]
+unique_name_in_owner = true
+layout_mode = 2
+mouse_filter = 2
+bbcode_enabled = true
+text = "Message"
+fit_content = true
+autowrap_mode = 0
+horizontal_alignment = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+&"": SubResource("AnimationLibrary_4rfic")
+}
+
+[node name="Timer" type="Timer" parent="."]
+unique_name_in_owner = true

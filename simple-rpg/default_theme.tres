@@ -1,0 +1,27 @@
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://dsn1sf7kciic"]
+
+[ext_resource type="FontFile" uid="uid://ctpjfteuluyjx" path="res://resources/fonts/NoticiaText-Bold.ttf" id="1_3taad"]
+[ext_resource type="FontFile" uid="uid://d20fors1ymuhi" path="res://resources/fonts/NoticiaText-Regular.ttf" id="1_e7bfs"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3taad"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_e7bfs"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e7bfs"]
+content_margin_left = 30.0
+content_margin_top = 20.0
+content_margin_right = 30.0
+content_margin_bottom = 20.0
+bg_color = Color(0.19076231, 0.19076234, 0.19076231, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[resource]
+default_font = ExtResource("1_e7bfs")
+default_font_size = 24
+Button/styles/focus = SubResource("StyleBoxEmpty_3taad")
+LineEdit/styles/focus = SubResource("StyleBoxEmpty_e7bfs")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_e7bfs")
+RichTextLabel/fonts/bold_font = ExtResource("1_3taad")

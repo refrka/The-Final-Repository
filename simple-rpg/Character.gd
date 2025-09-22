@@ -1,15 +1,24 @@
 class_name Character extends Node
 
 
-var new:= true
+var id: int
+var day: int = 1
 
-var level: int
-var experience: int
-var attack: float
-var current_health: int
-var max_health: int
+var current_location: Enums.LOCATION
+
+var level: int = 0
+var experience: int = 0
+var attack: float = 1.0
+var current_health: int = 25
+var max_health: int = 25
+
+
+
+
+
+
 
 
 
 func _init(_name: String) -> void:
-	name = name
+	name = _name

@@ -1,0 +1,27 @@
+[gd_scene load_steps=2 format=3 uid="uid://b21t4ky6gix53"]
+
+[ext_resource type="Script" uid="uid://c0vti0sraeb6b" path="res://scenes/rows/overlay_save_row.gd" id="1_xdhcd"]
+
+[node name="SaveRow" type="HBoxContainer"]
+theme_override_constants/separation = 15
+script = ExtResource("1_xdhcd")
+
+[node name="DeleteButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(25, 0)
+layout_mode = 2
+text = "x"
+
+[node name="Name" type="Label" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Name"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="LoadButton" type="Button" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Load"
